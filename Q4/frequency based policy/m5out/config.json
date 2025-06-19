@@ -626,7 +626,7 @@
                     "write_buffers": 8, 
                     "response_latency": 2, 
                     "cxx_class": "Cache", 
-                    "size": 65536, 
+                    "size": 32768, 
                     "type": "Cache", 
                     "clk_domain": "system.cpu_clk_domain", 
                     "max_miss_count": 0, 
@@ -641,7 +641,7 @@
                     "writeback_clean": false, 
                     "p_state_clk_gate_min": 1000, 
                     "tags": {
-                        "size": 65536, 
+                        "size": 32768, 
                         "tag_latency": 2, 
                         "replacement_policy": "system.cpu.dcache.replacement_policy", 
                         "name": "tags", 
@@ -715,7 +715,7 @@
             "write_buffers": 8, 
             "response_latency": 20, 
             "cxx_class": "Cache", 
-            "size": 2097152, 
+            "size": 131072, 
             "type": "Cache", 
             "clk_domain": "system.cpu_clk_domain", 
             "max_miss_count": 0, 
@@ -730,7 +730,7 @@
             "writeback_clean": false, 
             "p_state_clk_gate_min": 1000, 
             "tags": {
-                "size": 2097152, 
+                "size": 131072, 
                 "tag_latency": 20, 
                 "replacement_policy": "system.l2.replacement_policy", 
                 "name": "tags", 
@@ -769,14 +769,11 @@
         }, 
         "l3": {
             "replacement_policy": {
-                "btp": 0, 
-                "max_RRPV": 3, 
-                "hit_priority": false, 
                 "eventq_index": 0, 
-                "cxx_class": "BRRIPRP", 
                 "path": "system.l3.replacement_policy", 
-                "type": "BRRIPRP", 
-                "name": "replacement_policy"
+                "type": "LFURP", 
+                "name": "replacement_policy", 
+                "cxx_class": "LFURP"
             }, 
             "cpu_side": {
                 "peer": "system.tol3bus.master[0]", 
@@ -788,7 +785,7 @@
             "write_buffers": 16, 
             "response_latency": 32, 
             "cxx_class": "Cache", 
-            "size": 16777216, 
+            "size": 1048576, 
             "type": "Cache", 
             "clk_domain": "system.cpu_clk_domain", 
             "max_miss_count": 0, 
@@ -803,7 +800,7 @@
             "writeback_clean": false, 
             "p_state_clk_gate_min": 1000, 
             "tags": {
-                "size": 16777216, 
+                "size": 1048576, 
                 "tag_latency": 32, 
                 "replacement_policy": "system.l3.replacement_policy", 
                 "name": "tags", 
@@ -814,7 +811,7 @@
                 "clk_domain": "system.cpu_clk_domain", 
                 "power_model": [], 
                 "sequential_access": false, 
-                "assoc": 2, 
+                "assoc": 1, 
                 "warmup_percentage": 0, 
                 "cxx_class": "BaseSetAssoc", 
                 "p_state_clk_gate_max": 1000000000000, 
@@ -838,7 +835,7 @@
             "name": "l3", 
             "p_state_clk_gate_bins": 20, 
             "sequential_access": false, 
-            "assoc": 2
+            "assoc": 1
         }, 
         "cpu_voltage_domain": {
             "name": "cpu_voltage_domain", 
